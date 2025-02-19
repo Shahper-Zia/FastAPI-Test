@@ -30,7 +30,7 @@ This project is an AI-Powered Q&A Chatbot API built using FastAPI. It allows use
 
 2. Create a virtual environment and activate it:
    ```
-   python -m venv venv
+   python -m venv .venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 

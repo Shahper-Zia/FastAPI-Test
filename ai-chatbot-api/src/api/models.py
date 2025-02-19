@@ -1,12 +1,25 @@
 from pydantic import BaseModel
+from datetime import datetime
 from typing import Optional
 
-class UserQuery(BaseModel):
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class QueryRequest(BaseModel):
     question: str
 
-class LLMResponse(BaseModel):
-    answer: str
-    confidence: Optional[float] = None
+class QueryResponse(BaseModel):
+    response: str
+    cached: bool
+    message: str = "Response processed successfully"
 
-class ErrorResponse(BaseModel):
-    detail: str
+class QueryLog(BaseModel):
+    id: int
+    user_id: str
+    question: str
+    response: str
+    timestamp: datetime
+
+    class Config:
+        from_attributes = True
